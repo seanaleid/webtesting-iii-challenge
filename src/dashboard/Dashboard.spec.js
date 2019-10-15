@@ -47,7 +47,6 @@ test("cannot be closed or opened if it is locked - locked: false; closed: true",
 });
 
 test("cannot be closed or opened if it is locked - locked: true; closed: true", () => {
-    
     const lockMock = jest.fn();
     
     const { getByText } = render(<Controls toggleLocked={lockMock} locked={ true } closed={ true } />)
@@ -56,3 +55,4 @@ test("cannot be closed or opened if it is locked - locked: true; closed: true", 
     expect(lockMock).toHaveBeenCalledTimes(1);
     expect(lockMock).toBeTruthy();
 });
+

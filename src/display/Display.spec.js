@@ -6,9 +6,19 @@ import Display from "./Display";
 
 
 
-test("can't lock gate", () => {
-    const { getByText } = render(<Display />)
+test("displays if gate is open/closed and if it is locked/unlocked", () => {
+    const { getByText, queryByText } = render(<Display />)
     const locked = getByText(/locked/i);
+    const unlocked = getByText(/unlocked/i);
+    const open = getByText(/open/i);
+    const closed = queryByText(/closed/i);
 
-    expect(locked).toBeTruthy();
-})
+    expect(locked).toBeDefined();
+    expect(unlocked).toBeDefined();
+    expect(open).toBeDefined();
+    expect(closed).toBeDefined();
+
+});
+
+
+
